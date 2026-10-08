@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDOC - Radiologia Odontológica Digital | Santiago RS</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        idoc: {
+                            red: '#9A1D36',    /* Bordô da Logo */
+                            dark: '#5B5B5D',   /* Cinza da Logo */
+                            light: '#F8F9FA',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for specific components */
+        .carousel-transition {
+            transition: transform 0.7s ease-in-out;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        /* Esconder barra de rolagem horizontal se houver overflow */
+        body {
+            overflow-x: hidden; 
+        }
+    </style>
+</head>
+<body class="bg-idoc-light text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="logoidoc_2.jpg" alt="IDOC - Centro Odontológico Integrado e Diagnóstico por Imagem" class="h-12 md:h-16 object-contain">
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#inicio" class="text-gray-600 hover:text-idoc-red font-semibold transition">Início</a>
+                <a href="#sobre" class="text-gray-600 hover:text-idoc-red font-semibold transition">Sobre Nós</a>
+                <a href="#servicos" class="text-gray-600 hover:text-idoc-red font-semibold transition">Serviços</a>
+                <a href="#depoimentos" class="text-gray-600 hover:text-idoc-red font-semibold transition">Depoimentos</a>
+                <a href="#contato" class="text-gray-600 hover:text-idoc-red font-semibold transition">Contato</a>
+            </nav>
+
+            <!-- Redes Sociais e Botão Mobile -->
+            <div class="flex items-center space-x-4">
+                <a href="https://www.instagram.com/idocsantiago.radiologia/" target="_blank" class="text-idoc-red hover:text-idoc-dark text-2xl transition">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/idoc.santiago/?locale=pt_BR" target="_blank" class="text-idoc-red hover:text-idoc-dark text-2xl transition hidden md:block">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+                
+                <!-- Botão Menu Mobile -->
+                <button id="mobile-menu-btn" class="md:hidden text-2xl text-idoc-dark focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#inicio" class="block py-3 px-4 text-gray-600 hover:bg-gray-50 border-b">Início</a>
+            <a href="#sobre" class="block py-3 px-4 text-gray-600 hover:bg-gray-50 border-b">Sobre Nós</a>
+            <a href="#servicos" class="block py-3 px-4 text-gray-600 hover:bg-gray-50 border-b">Serviços</a>
+            <a href="#depoimentos" class="block py-3 px-4 text-gray-600 hover:bg-gray-50 border-b">Depoimentos</a>
+            <a href="#contato" class="block py-3 px-4 text-gray-600 hover:bg-gray-50">Contato</a>
+        </div>
+    </header>
+
+    <!-- Hero Section (Carrossel) -->
+    <section id="inicio" class="relative mt-[72px] md:mt-[88px] h-[70vh] md:h-[80vh] w-full overflow-hidden bg-black group">
+        
+        <!-- Container dos Slides -->
+        <div id="carousel-inner" class="flex w-full h-full carousel-transition">
+            
+            <!-- Slide 1 -->
+            <div class="w-full h-full flex-shrink-0 relative">
+                <img src="idoc9_2.jpg" alt="Exames Digitais Disponíveis com Rapidez" class="w-full h-full object-cover object-center opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center">
+                    <div class="container mx-auto px-6 md:px-12">
+                        <div class="max-w-2xl text-white">
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow leading-tight">Exames digitais com máxima rapidez.</h1>
+                            <p class="text-lg md:text-xl mb-8 text-gray-200">Sistema de digitalização mais avançado da atualidade para o seu diagnóstico.</p>
+                            <a href="https://api.whatsapp.com/send?phone=5555996888169" target="_blank" class="inline-block bg-idoc-red hover:bg-red-800 text-white font-bold py-3 px-8 rounded-full transition shadow-lg transform hover:-translate-y-1">
+                                <i class="fab fa-whatsapp mr-2"></i> Agende seu Exame
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="w-full h-full flex-shrink-0 relative">
+                <img src="idoc2_2.jpg" alt="Radiologia Completa Fluxo 100% Digital" class="w-full h-full object-cover object-center opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center">
+                    <div class="container mx-auto px-6 md:px-12">
+                        <div class="max-w-2xl text-white">
+                            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow leading-tight">Radiologia Completa</h2>
+                            <p class="text-lg md:text-xl mb-8 text-gray-200">Oferecemos um fluxo 100% digital, garantindo precisão absoluta e conforto para você.</p>
+                            <a href="#servicos" class="inline-block bg-white text-idoc-red hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition shadow-lg transform hover:-translate-y-1">
+                                Conhecer Serviços
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="w-full h-full flex-shrink-0 relative">
+                <img src="idoc7_2.jpg" alt="Escaneamento Intraoral" class="w-full h-full object-cover object-center opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center">
+                    <div class="container mx-auto px-6 md:px-12">
+                        <div class="max-w-2xl text-white">
+                            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow leading-tight">Adeus ao desconforto dos moldes!</h2>
+                            <p class="text-lg md:text-xl mb-8 text-gray-200">Aposte no escaneamento intraoral para um procedimento rápido e sem náuseas.</p>
+                            <a href="#servicos" class="inline-block bg-idoc-red hover:bg-red-800 text-white font-bold py-3 px-8 rounded-full transition shadow-lg transform hover:-translate-y-1">
+                                Saiba Mais
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Controles do Carrossel -->
+        <button id="prev-slide" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/40 hover:bg-idoc-red text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition focus:outline-none z-10">
+            <i class="fas fa-chevron-left text-2xl"></i>
+        </button>
+        <button id="next-slide" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/40 hover:bg-idoc-red text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition focus:outline-none z-10">
+            <i class="fas fa-chevron-right text-2xl"></i>
+        </button>
+
+        <!-- Indicadores -->
+        <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-2 z-10">
+            <button class="carousel-dot w-3 h-3 rounded-full bg-idoc-red"></button>
+            <button class="carousel-dot w-3 h-3 rounded-full bg-white/50"></button>
+            <button class="carousel-dot w-3 h-3 rounded-full bg-white/50"></button>
+        </div>
+    </section>
+
+    <!-- Sobre Nós / Diferenciais -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-idoc-red mb-4">Por que escolher a IDOC?</h2>
+                <div class="w-24 h-1 bg-idoc-dark mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Na IDOC - Radiologia Odontológica Digital, unimos tecnologia de ponta e um atendimento humanizado para oferecer os melhores diagnósticos por imagem de Santiago e região.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Diferencial 1 -->
+                <div class="bg-idoc-light rounded-2xl p-6 shadow-sm hover:shadow-lg transition text-center hover-scale">
+                    <div class="h-48 overflow-hidden rounded-xl mb-6">
+                        <img src="idoc1_2.jpg" alt="Atendimento super rápido" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Atendimento Prático</h3>
+                    <p class="text-gray-600 text-sm">
+                        Agendamento via WhatsApp, atendimento super rápido e resultados disponibilizados digitalmente para você e seu dentista com total praticidade.
+                    </p>
+                </div>
+
+                <!-- Diferencial 2 -->
+                <div class="bg-idoc-light rounded-2xl p-6 shadow-sm hover:shadow-lg transition text-center hover-scale">
+                    <div class="h-48 overflow-hidden rounded-xl mb-6">
+                        <img src="idoc4_2.jpg" alt="Atendemos todas as idades" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Para Todas as Idades</h3>
+                    <p class="text-gray-600 text-sm">
+                        Nossa equipe é treinada para realizar exames com excelência em crianças, adultos e idosos, garantindo conforto e segurança em cada etapa.
+                    </p>
+                </div>
+
+                <!-- Diferencial 3 -->
+                <div class="bg-idoc-light rounded-2xl p-6 shadow-sm hover:shadow-lg transition text-center hover-scale">
+                    <div class="h-48 overflow-hidden rounded-xl mb-6">
+                        <img src="idoc8_2.jpg" alt="Planejamento do Sorriso" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Exames de Qualidade</h3>
+                    <p class="text-gray-600 text-sm">
+                        O planejamento do sorriso perfeito começa com exames precisos. Utilizamos equipamentos que geram imagens de altíssima resolução.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-20 bg-idoc-light">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl mb-6 md:mb-0">
+                    <h2 class="text-3xl md:text-4xl font-bold text-idoc-red mb-4">Nossos Serviços</h2>
+                    <div class="w-24 h-1 bg-idoc-dark mb-6"></div>
+                    <p class="text-lg text-gray-600">
+                        Estrutura completa para atender às necessidades do seu tratamento odontológico com tecnologia 100% digital.
+                    </p>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=5555996888169" target="_blank" class="inline-flex items-center text-idoc-red font-semibold hover:text-red-800">
+                    Tirar dúvida no WhatsApp <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Serviço 1 -->
+                <div class="bg-white flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition group">
+                    <div class="w-full md:w-2/5 h-64 md:h-auto relative overflow-hidden">
+                        <img src="idoc2_2.jpg" alt="Radiologia Digital" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="w-full md:w-3/5 p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Radiologia Completa</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Realizamos radiografias panorâmicas, periapicais, cefalométricas, entre outras. Todas com fluxo 100% digital, garantindo menor exposição à radiação e maior precisão.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-idoc-red mr-2"></i> Alta nitidez</li>
+                            <li><i class="fas fa-check text-idoc-red mr-2"></i> Agilidade no laudo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="bg-white flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition group">
+                    <div class="w-full md:w-2/5 h-64 md:h-auto relative overflow-hidden">
+                        <img src="idoc7_2.jpg" alt="Escaneamento Intraoral" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="w-full md:w-3/5 p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Escaneamento Intraoral</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            A substituição perfeita para as antigas massas de moldagem. O escâner cria um modelo 3D colorido e preciso da sua boca em poucos minutos, com total conforto.
+                        </p>
+                        <ul class="text-sm text-gray-500 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-idoc-red mr-2"></i> Sem ânsia ou desconforto</li>
+                            <li><i class="fas fa-check text-idoc-red mr-2"></i> Precisão milimétrica</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="bg-white flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition group">
+                    <div class="w-full md:w-2/5 h-64 md:h-auto relative overflow-hidden">
+                        <img src="idoc3_2.jpg" alt="Exames para Ortodontia" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="w-full md:w-3/5 p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Exames para Ortodontia</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Vai usar aparelho? Realizamos a documentação ortodôntica completa (radiografias, fotos e modelos virtuais) necessária para o planejamento do seu ortodontista.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Serviço 4 -->
+                <div class="bg-white flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition group">
+                    <div class="w-full md:w-2/5 h-64 md:h-auto relative overflow-hidden">
+                        <img src="idoc6_2.jpg" alt="Exames para Implantes" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="w-full md:w-3/5 p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Exames para Implantes</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            Tomografias computadorizadas fundamentais para avaliar a estrutura óssea antes da colocação de implantes dentários. Segurança essencial para o procedimento.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos (Prova Social) -->
+    <section id="depoimentos" class="py-20 bg-white relative overflow-hidden">
+        <!-- Decorativos -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-idoc-light rounded-full -translate-x-1/2 -translate-y-1/2 opacity-50"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-gray-50 rounded-full translate-x-1/3 translate-y-1/3 opacity-50"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-idoc-red mb-4">Feedbacks que nos motivam!</h2>
+                <div class="w-24 h-1 bg-idoc-dark mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    O carinho e a satisfação de nossos pacientes são o nosso maior compromisso.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl mx-auto">
+                <div class="w-full md:w-1/2">
+                    <img src="idoc5_2.jpg" alt="Depoimento de Paciente" class="w-full rounded-2xl shadow-xl hover:shadow-2xl transition duration-300">
+                </div>
+                <div class="w-full md:w-1/2 bg-idoc-light p-8 rounded-2xl border-l-4 border-idoc-red relative">
+                    <i class="fas fa-quote-left text-4xl text-gray-300 absolute top-4 left-4"></i>
+                    <p class="text-gray-700 italic text-lg leading-relaxed mt-6 mb-6">
+                        "Estou passando somente pra lhes elogiar pelo atendimento de ontem! A moça que fez os procedimentos super querida, educada e atenciosa! Já indiquei a clínica..."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-idoc-red rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
+                            A
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Amanda</h4>
+                            <p class="text-sm text-gray-500">Paciente IDOC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-2xl font-bold text-idoc-red mb-2">#vempraldoc</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato e Rodapé -->
+    <footer id="contato" class="bg-gray-900 text-gray-300 pt-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Coluna 1: Sobre -->
+                <div>
+                    <img src="logoidoc_2.jpg" alt="Logo IDOC" class="h-16 object-contain bg-white p-2 rounded-lg mb-6">
+                    <p class="text-sm mb-4">
+                        Centro Odontológico Integrado e Diagnóstico por Imagem. Tecnologia e precisão a favor do seu sorriso em Santiago, RS.
+                    </p>
+                    <p class="text-xs text-gray-500 mt-4">
+                        RT: Cíntia da Rosa Nunes<br>
+                        CRO/RS: 17021 | EPAO: 3487
+                    </p>
+                </div>
+
+                <!-- Coluna 2: Contatos -->
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6 border-b border-gray-700 pb-2">Contatos</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3 text-idoc-red"></i>
+                            <div>
+                                <p>(55) 3251-7036</p>
+                                <p>(55) 3251-7239</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp text-lg mr-3 text-idoc-red"></i>
+                            <a href="https://api.whatsapp.com/send?phone=5555996888169" target="_blank" class="hover:text-white transition">(55) 99688-8169</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mt-1 mr-3 text-idoc-red"></i>
+                            <a href="mailto:idoc.santiago@hotmail.com" class="hover:text-white transition">idoc.santiago@hotmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Endereço -->
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6 border-b border-gray-700 pb-2">Onde Estamos</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-idoc-red text-lg"></i>
+                            <p>
+                                Rua Sete de Setembro, 657<br>
+                                Sala 02 – Centro<br>
+                                Santiago - RS<br>
+                                CEP: 97700-240
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="https://www.instagram.com/idocsantiago.radiologia/" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-idoc-red text-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/idoc.santiago/?locale=pt_BR" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-idoc-red text-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coluna 4: Mapa Simulado -->
+                <div class="h-48 md:h-full min-h-[200px] bg-gray-800 rounded-xl overflow-hidden relative border border-gray-700 flex items-center justify-center group cursor-pointer">
+                    <!-- Placeholder visual para o Mapa -->
+                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition z-10 flex items-center justify-center">
+                        <span class="bg-idoc-red text-white px-4 py-2 rounded-full font-semibold text-sm flex items-center">
+                            <i class="fas fa-location-arrow mr-2"></i> Ver no Mapa
+                        </span>
+                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3480.999745199857!2d-54.8719!3d-29.1931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDExJzM1LjIiUyA1NMMwNTInMTguOCJX!5e0!3m2!1spt-BR!2sbr!4v1697000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0; opacity: 0.7;" allowfullscreen="" loading="lazy" class="absolute inset-0 object-cover pointer-events-none"></iframe>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="bg-black py-4 text-center text-xs text-gray-500 border-t border-gray-800">
+            <p>&copy; 2026 IDOC - Radiologia Odontológica Digital. Todos os direitos reservados. Razão Social: Cintia da Rosa Nunes & Cia LTDA.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=5555996888169" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-50 transition transform hover:scale-110 animate-bounce" aria-label="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* --- Mobile Menu Toggle --- */
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                // Altera ícone
+                const icon = btn.querySelector('i');
+                if(menu.classList.contains('hidden')){
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+
+            // Fecha menu ao clicar num link
+            const mobileLinks = menu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    btn.querySelector('i').classList.remove('fa-times');
+                    btn.querySelector('i').classList.add('fa-bars');
+                });
+            });
+
+
+            /* --- Lógica do Carrossel Dinâmico --- */
+            const inner = document.getElementById('carousel-inner');
+            const slides = inner.children;
+            const totalSlides = slides.length;
+            const btnPrev = document.getElementById('prev-slide');
+            const btnNext = document.getElementById('next-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            let currentIndex = 0;
+            let interval;
+
+            function updateCarousel() {
+                // Move o container X porcento com base no índice atual
+                inner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Atualiza indicadores (bolinhas)
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.remove('bg-white/50');
+                        dot.classList.add('bg-idoc-red');
+                    } else {
+                        dot.classList.remove('bg-idoc-red');
+                        dot.classList.add('bg-white/50');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+
+            // Inicia o intervalo automático (Passa a cada 5 segundos)
+            function startAutoSlide() {
+                interval = setInterval(nextSlide, 5000);
+            }
+
+            function resetAutoSlide() {
+                clearInterval(interval);
+                startAutoSlide();
+            }
+
+            // Listeners dos botões
+            btnNext.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+
+            btnPrev.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+
+            // Listeners das bolinhas (dots)
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                    resetAutoSlide();
+                });
+            });
+
+            // Inicia carrossel
+            startAutoSlide();
+        });
+    </script>
+</body>
+</html>
